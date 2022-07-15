@@ -1,0 +1,4 @@
+numpy==1.22.3
+pywin32==302
+fake_headers
+requests
