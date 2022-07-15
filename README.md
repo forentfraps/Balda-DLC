@@ -6,6 +6,7 @@
   - ```python solver.py```
 
 ## Notes
+Algorithm is written for  https://logic-games.spb.ru/balda
 
 Due to a wordlist not being public, it is shipping in crypted.txt (it is encrypted)
 
