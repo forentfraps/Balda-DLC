@@ -12,7 +12,7 @@ class Balda:
         with open(str ("./prompt" + str(variant) + '.txt') , 'r', encoding='utf-8') as f:
             self.field = list(map(lambda x: x.split(' '), f.read().split('\n')))
         self.letters = list("абвгдеёжзийклмнопрстуфхцчшщъыьэюя")
-       
+        self.variant = variant
         if not os.path.exists('./vutf8dec.txt'):
             print('Initializing wordlist, this happens only once :-)')
             c = crypter(f'{os.getcwd()}{os.sep}crypted.txt', '82965977d6efb15b73884fccbe6bdb8d7093f1acf12c25a2b25146545b424d3b')
@@ -30,7 +30,7 @@ class Balda:
         return [word.replace('-', letter) for letter in self.letters]
     def get_directions(self, x, y):
         #return up, right, down, left
-        return list(map(lambda cords: self.field[cords[1]][cords[0]] if (cords[0] >= 0 and cords[0] <= 4 and cords[1] >= 0 and cords[1] <= 4) else False,[(x, y - 1),(x + 1, y),(x, y +1),(x - 1, y)]))
+        return list(map(lambda cords: self.field[cords[1]][cords[0]] if (cords[0] >= 0 and cords[0] <= self.variant - 1 and cords[1] >= 0 and cords[1] <= self.variant - 1) else False,[(x, y - 1),(x + 1, y),(x, y +1),(x - 1, y)]))
     def rotate(self, strg, n):
         return strg[n:] + strg[:n]
     def subString(self, s):
@@ -78,8 +78,8 @@ class Balda:
     
     def find_all(self):
         pss = []
-        for x in range(5):
-            for y in range(5):
+        for x in range(self.variant):
+            for y in range(self.variant):
                 pss.append(Process(target = self.find_patterns, args = (x, y,'', [])))
         for p in pss:
             p.start()
@@ -109,6 +109,6 @@ class Balda:
 
         
 if __name__ == "__main__":
-    Balda().solve()
+    Balda(variant = 5).solve()
     input()
 
