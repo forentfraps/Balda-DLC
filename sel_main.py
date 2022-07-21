@@ -117,7 +117,8 @@ elem.innerHTML = "{value}"''')
                         self.size = 3
                     case '-':
                         self.edit_label('commandline', '')
-                        if self.turn == 1:
+                        #if self.turn == 1: (Doesnt work as it is supposed, may be for the better, who knows)
+                        if True:
                             self.edit_label('cheeckystatus','We are fetching words, please be patient')
                             b = Balda(f_array = self.get_strings(), bans = self.get_banwords())
                             res = b.solve()
