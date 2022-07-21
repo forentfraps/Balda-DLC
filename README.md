@@ -26,6 +26,4 @@ Thus, the first start will initialize the wordlist, hence somewhat keeping the i
 Use Russian lowercase letters
 
 ![image](https://user-images.githubusercontent.com/29946764/180163449-f6e063c9-395d-4105-8356-9c7596cfd3ab.png)
-
-
 ![image](https://user-images.githubusercontent.com/29946764/180163650-f117d764-5ea7-4d30-bb8e-aeef31dc97dd.png)
