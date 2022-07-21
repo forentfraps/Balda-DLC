@@ -3,10 +3,14 @@
 ## Usage
   - ```pip install -r -requirements.txt``` (Do it once to install dependancies)
   - ```python sel_main.py```
-  - Red field is a command prompt, which accepts following commands: reset3, reset5, reset7, - \n
-  All the resets will resize green fields, according to provided number (3, 5 or 7)\n
-  '-' will start fetching words, according to provided letters, above the red field is a status label, which is dynamically updated\n
+  - Red field is a command prompt, which accepts following commands: reset3, reset5, reset7, - 
+
+  All the resets will resize green fields, according to provided number (3, 5 or 7)
+  
+  '-' will start fetching words, according to provided letters, above the red field is a status label, which is dynamically updated
+  
   Output is located below the strings
+
 
 ## Notes
 Algorithm is written for  https://logic-games.spb.ru/balda
