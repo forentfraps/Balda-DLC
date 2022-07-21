@@ -8,11 +8,16 @@ class TiBalda(Exception):
     pass
 
 class Balda:
-    def __init__(self, variant = 5):
-        with open(str ("./prompt" + str(variant) + '.txt') , 'r', encoding='utf-8') as f:
-            self.field = list(map(lambda x: x.split(' '), f.read().split('\n')))
+    def __init__(self, variant = 7, f_array = None, bans = None):
+        if not f_array:
+            with open(str ("./prompt" + str(variant) + '.txt') , 'r', encoding='utf-8') as f:
+                self.field = list(map(lambda x: x.split(' '), f.read().split('\n')))
+                self.variant = variant
+        else:
+            self.field = f_array
+            self.variant = len(f_array)
         self.letters = list("абвгдеёжзийклмнопрстуфхцчшщъыьэюя")
-        self.variant = variant
+        self.bans = bans
         if not os.path.exists('./vutf8dec.txt'):
             print('Initializing wordlist, this happens only once :-)')
             c = crypter(f'{os.getcwd()}{os.sep}crypted.txt', '82965977d6efb15b73884fccbe6bdb8d7093f1acf12c25a2b25146545b424d3b')
@@ -93,7 +98,7 @@ class Balda:
         for s in strs:
             ps += self.match(s)
         ps = list(set(ps) & set(self.wordlist))
-        ps.sort(key=len)
+        
         self.rezus = ps
         with open('tmp.txt', 'w') as f:
             pass
@@ -103,12 +108,12 @@ class Balda:
         self.find_all()
         print('Comparing to wordlist...\n')
         self.match_all()
-        print(self.rezus)
         print(f'All it took was {int(time.time() - t1)}s')
+        if self.bans:
+            self.rezus = list(set(self.rezus) - set(self.bans))
+        self.rezus.sort(key=len)
+        return self.rezus[::-1]
         
-
         
 if __name__ == "__main__":
     Balda(variant = 5).solve()
-    input()
-
