@@ -4,7 +4,7 @@ import time
 from selenium.common.exceptions import NoSuchElementException 
 from selenium.webdriver.common.by import By
 import threading
-from data import my_cookies
+#from data import my_cookies -> i used data.py to store my cookies from the site
 
 class Instance:
     def __init__(self):
